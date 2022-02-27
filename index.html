@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="modal-wrapper">
+        <div class="modal">
+            <h1>New Book</h1>
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title">
+            </div>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" id="author">
+            </div>
+            <div>
+                <label for="pages">Pages</label>
+                <input type="number" id="pages"> 
+            </div>
+            <div>
+                <input type="checkbox" name="read" id="read">
+                <label id="check" for="read">read yet?</label>
+            </div>
+            <button class="button btn-modal">Add</button>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="container">    
+                <div class="logo">
+                    <img src="/img/bookshelf.svg" alt="Bookshelf">
+                    <h1>Bookshelf</h1>
+                </div>
+                <div class="log">
+                    <p class="booksTotal">Books total: <span>0</span></p>
+                    <p class="bookRead">Books read: <span>0</span></p>
+                    <p class="booksUnread">Books unread: <span>0</span></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main-head">
+                <button class="button add">
+                    <img src="/img/book-plus-multiple.svg" alt="Add Book icon"> Add Book
+                </button>
+            </div>
+            <div class="main-lib">
+                <ul>
+                    <li class="book">
+                        <!-- Template -->
+                        <div>
+                            <b class="title">A Song of Ice and Fire</b> | George R.R. Martin | 500 pages
+                        </div>
+                        <div>
+                            <button class="button btn-book">
+                                read
+                            </button>
+                            <button class="button btn-book">
+                                delete
+                            </button>
+                        </div>
+                        <!-- -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </main>
+    <footer class="footer">
+        &copy; Copyright teamSuperdiv
+    </footer>
+    <script src="/app.js"></script>
+</body>
+</html>

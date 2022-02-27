@@ -1,0 +1,148 @@
+:root {
+    --light: #FFFFFF;
+    --medium: #F9F6F7;
+    --orange: #FFE8D6;
+    --dark-orange: #FF971D;
+    --black: #2F2F2F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--black);
+}
+
+body {
+    position: relative;
+    height: 100vh;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: transparent;
+    padding: .75rem 1.25rem;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+/* Modal + Wrapper to add new Book */
+.modal-wrapper {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+    background-color: var(--light);
+    padding: 1.5rem 1.25rem;
+    border-radius: 5px;
+}
+
+.modal h1,div {
+    margin-bottom: .5rem;
+}
+
+.modal label:not(#check) {
+    display: block;
+}
+
+.btn-modal {
+    width: 100%;
+    padding: .5rem 1rem;
+    transition: 3ms ease;
+}
+
+/* Container for Width Constraint */
+.container {
+    max-width: 1320px;
+    margin: auto;
+}
+
+/* Navbar */
+.navbar {
+    padding: 1rem;
+    background-color: var(--medium);
+    box-shadow: 0px 1px 5px #999;
+}
+
+.navbar > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo > img {
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+}
+
+img + h1 {
+    font-size: 2.5rem;
+}
+
+/* Main */
+.main-head {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.add {
+    background: rgb(255,151,29);
+    background: linear-gradient(90deg, rgba(255,151,29,1) 0%, rgba(255,232,214,1) 100%);
+    transition: 3ms ease;
+}
+
+.add:hover {
+    transform: scale(1.1);
+}
+
+/* Book */
+.book {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    border-left: 8px solid var(--dark-orange);
+}
+
+.book div:nth-child(2) {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-book {
+    padding: .5rem 1rem;
+    transition: 3ms ease;
+}
+
+.footer {
+    background-color: var(--dark-orange);
+    padding: .5rem;
+    color: var(--light);
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
