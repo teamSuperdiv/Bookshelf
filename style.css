@@ -71,6 +71,11 @@ body {
     border-color: rgba(0, 0, 0, 0.5);
 }
 
+#error {
+    color: red;
+    margin-top: .5rem;
+}
+
 /* Container for Width Constraint */
 .container {
     max-width: 1320px;
@@ -151,6 +156,12 @@ img + h1 {
 
 .book button:hover {
     border-color: rgba(0, 0, 0, 0.5);
+}
+
+.book .delete:hover {
+    border-color: red;
+    background-color: red;
+    color: white;
 }
 
 .footer {

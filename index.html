@@ -11,23 +11,26 @@
     <div class="modal-wrapper">
         <div class="modal">
             <h1>New Book</h1>
-            <div>
-                <label for="title">Title</label>
-                <input type="text" id="title" required>
-            </div>
-            <div>
-                <label for="author">Author</label>
-                <input type="text" id="author" required>
-            </div>
-            <div>
-                <label for="pages">Pages</label>
-                <input type="number" id="pages" required> 
-            </div>
-            <div>
-                <input type="checkbox" name="read" id="read">
-                <label id="check" for="read">read yet?</label>
-            </div>
-            <button id="addBooktoLib" class="button btn-modal" onclick="addBooktoLibrary()">Add</button>
+            <form action="#">
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" id="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" id="author">
+                </div>
+                <div>
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages"> 
+                </div>
+                <div>
+                    <input type="checkbox" name="read" id="read">
+                    <label id="check" for="read">read yet?</label>
+                </div>
+                <button type="button" id="addBooktoLib" class="button btn-modal" onclick="addBooktoLibrary()">Add</button>
+                <p id="error" hidden>You must fill out all the fields!</p>
+            </form>
         </div>
     </div>
     <header>
@@ -39,7 +42,7 @@
                 </div>
                 <div class="log">
                     <p class="booksTotal">Books total: <span>0</span></p>
-                    <p class="bookRead">Books read: <span>0</span></p>
+                    <p class="booksRead">Books read: <span>0</span></p>
                     <p class="booksUnread">Books unread: <span>0</span></p>
                 </div>
             </div>
