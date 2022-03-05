@@ -57,13 +57,18 @@ function addBooktoLibrary() {
         displayBooks();
         updateOverview();
         wrapper.style.visibility = 'hidden';
+        clearModal();
     } else {
         document.querySelector('#error').hidden = false;
     }
 }
 
 function clearModal() {
-    
+    let inputs = Array.from(document.querySelectorAll('input:not([type="checkbox"])'));
+    inputs.forEach((input) => {
+        input.value = '';
+    }) 
+    document.querySelector('input[type="checkbox"]').value = '';
 }
 
 // Render the book cards to the DOM
