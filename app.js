@@ -2,9 +2,10 @@ let library = document.querySelector('.main-lib ul');
 let wrapper = document.querySelector('.modal-wrapper');
 let addButton = document.querySelector('#addBooktoLib');
 let inputValues = Array.from(document.querySelectorAll('input'));
+// let books = document.querySelectorAll('.book');
 
 let myLibrary = [];
-let bookID = 0;
+let bookID = 1;
 
 // Overview over Books
 /* 
@@ -25,22 +26,21 @@ function updateOverview() {
 }
 
 // Book Object Constructor
-function Book(title, author, numberOfPages, read) {
+function Book(title, author, numberOfPages, read, id) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.numberOfPages = numberOfPages;
     this.read = read;
     this.hasBeenread = function() {
-        if (read) {
+        if (this.read) {
             return 'read';
         } else return 'not read';
     };
 }
 
 Book.prototype.changeReadStatus = function () {
-    if (!read) {
-        read = true;
-    } else read = false;
+    this.read = !this.read;
 }
 
 function validateForm() {
@@ -52,11 +52,11 @@ function validateForm() {
 
 function addBooktoLibrary() {
     if (validateForm()) {
-        myLibrary.push(new Book(inputValues[0].value, inputValues[1].value, inputValues[2].value, inputValues[3].checked));
-        bookID++;
+        myLibrary.push(new Book(inputValues[0].value, inputValues[1].value, inputValues[2].value, inputValues[3].checked, bookID));
         displayBooks();
         updateOverview();
         wrapper.style.visibility = 'hidden';
+        bookID++;
         clearModal();
     } else {
         document.querySelector('#error').hidden = false;
@@ -77,13 +77,14 @@ function displayBooks() {
     myLibrary.forEach((book) => {
         let li = document.createElement('li');
         li.classList.add('book');
-        li.dataset['id'] = bookID;
+        li.dataset['id'] = book.id;
         let bookInfo = document.createElement('div');
         let title = document.createElement('b');
         let restOfInfo = document.createElement('p');    
         let buttonContainer = document.createElement('div');
         let readUnread = document.createElement('button');
         readUnread.classList.add('button');
+        readUnread.classList.add('read');
         let deleteBtn = document.createElement('button');
         deleteBtn.classList.add('button');
         deleteBtn.classList.add('delete');
@@ -103,11 +104,25 @@ function displayBooks() {
     })  
 }
 
+// change read status
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('read')) {
+        let dataId = e.target.parentNode.parentNode.dataset['id'];
+        myLibrary.forEach((book) => {
+            if (book.id == dataId) {
+                book.changeReadStatus();
+                e.target.textContent = book.hasBeenread();
+            }
+        })
+        updateOverview();
+    }
+})
+
 // delete book Items
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete')) {
-        let idToDelete = e.target.dataset['id'];
-        myLibrary.splice(idToDelete, 1);
+        let dataId = e.target.parentNode.parentNode.dataset['id'];
+        myLibrary = myLibrary.filter((book) => {return book.id != dataId});
         displayBooks();
         updateOverview();
     }
