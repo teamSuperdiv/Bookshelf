@@ -1,175 +1,197 @@
 :root {
-    --light: #FFFFFF;
-    --medium: #F9F6F7;
-    --orange: #FFE8D6;
-    --dark-orange: #FF971D;
-    --black: #2F2F2F;
+  --light: #ffffff;
+  --medium: #f9f6f7;
+  --orange: #ffe8d6;
+  --dark-orange: #ff971d;
+  --black: #2f2f2f;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    color: var(--black);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--black);
 }
 
 body {
-    position: relative;
-    height: 100vh;
+  position: relative;
+  height: 100vh;
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    border: transparent;
-    padding: .75rem 1.25rem;
-    border-radius: 5px;
-    font-size: 1.25rem;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: transparent;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
 /* Modal + Wrapper to add new Book */
 .modal-wrapper {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    transition: 0.4s ease-in;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: 0.4s ease-in;
 }
 
 .modal {
-    position: relative;
-    background-color: var(--light);
-    padding: 1.5rem 1.5rem;
-    border-radius: 5px;
+  position: relative;
+  background-color: var(--light);
+  padding: 1.5rem 2rem;
+  border-radius: 5px;
 }
 
-.modal h1,div {
-    margin-bottom: .5rem;
+.modal h1 {
+  font-size: larger;
 }
 
-.modal label:not(#check) {
-    display: block;
+.modal h1,
+div {
+  margin-bottom: 0.75rem;
 }
 
 .btn-modal {
-    width: 100%;
-    padding: .5rem 1rem;
-    border: solid 2px transparent;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: solid 2px transparent;
 }
 
 .btn-modal:hover {
-    border-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Form Styles */
+
+.modal input:not(#read) {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.5rem;
+}
+
+.modal label:not(#check) {
+  display: block;
+}
+
+.modal input:invalid {
+    border-color: red;
 }
 
 #error {
-    color: red;
-    margin-top: .5rem;
+  color: red;
+  margin-top: .5rem;
 }
 
 /* Container for Width Constraint */
 .container {
-    max-width: 1320px;
-    margin: auto;
+  max-width: 1320px;
+  margin: auto;
 }
 
 /* Navbar */
 .navbar {
-    padding: 1rem;
-    background-color: var(--medium);
-    box-shadow: 0px 1px 5px #999;
+  padding: 1rem;
+  background-color: var(--medium);
+  box-shadow: 0px 1px 5px #999;
 }
 
 .navbar > .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar .logo > img {
-    height: 60px;
+  height: 60px;
 }
 
 .logo {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 img + h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 /* Main */
 .main-head {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 .add {
-    background: rgb(255,151,29);
-    background: linear-gradient(90deg, rgba(255,151,29,1) 0%, rgba(255,232,214,1) 100%);
-    transition: 0.1s ease-in;
+  background: rgb(255, 151, 29);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 151, 29, 1) 0%,
+    rgba(255, 232, 214, 1) 100%
+  );
+  transition: 0.1s ease-in;
 }
 
 .add:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Book */
 .book {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
-    border-left: 8px solid var(--dark-orange);
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  border-left: 8px solid var(--dark-orange);
+  margin-bottom: 1rem;
 }
 
 .book :first-child {
-    display: flex;
-    gap: 3px;
+  display: flex;
+  gap: 3px;
 }
 
 .book div:nth-child(2) {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 .book button {
-    padding: .5rem 1rem;
-    transition: 0.3s ease;
-    border: solid 2px transparent;
+  padding: 0.5rem 1rem;
+  transition: 0.3s ease;
+  border: solid 2px transparent;
 }
 
 .book button:hover {
-    border-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.5);
 }
 
 .book .delete:hover {
-    border-color: red;
-    background-color: red;
-    color: white;
+  border-color: red;
+  background-color: red;
+  color: white;
 }
 
 .footer {
-    background-color: var(--dark-orange);
-    padding: .5rem;
-    color: var(--light);
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
+  background-color: var(--dark-orange);
+  padding: 0.5rem;
+  color: var(--light);
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }

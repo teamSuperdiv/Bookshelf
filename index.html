@@ -11,24 +11,27 @@
     <div class="modal-wrapper">
         <div class="modal">
             <h1>New Book</h1>
-            <form action="#">
+            <form action="#" onsubmit="validateForm(event)" novalidate id="form">
                 <div>
                     <label for="title">Title</label>
-                    <input type="text" id="title">
+                    <input type="text" id="title" required>
+                    <span class="error" hidden>Please enter a title!</span>
                 </div>
                 <div>
                     <label for="author">Author</label>
-                    <input type="text" id="author">
+                    <input type="text" id="author" required>
+                    <span class="error" hidden>Please enter an author!</span>
                 </div>
                 <div>
                     <label for="pages">Pages</label>
-                    <input type="number" id="pages"> 
+                    <input type="number" id="pages" required>
+                    <span class="error" hidden>No book without pages!</span> 
                 </div>
                 <div>
                     <input type="checkbox" name="read" id="read">
                     <label id="check" for="read">read yet?</label>
                 </div>
-                <button type="button" id="addBooktoLib" class="button btn-modal" onclick="addBooktoLibrary()">Add</button>
+                <button type="submit" id="addBooktoLib" class="button btn-modal">Add</button>
                 <p id="error" hidden>You must fill out all the fields!</p>
             </form>
         </div>
